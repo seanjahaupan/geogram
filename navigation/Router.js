@@ -4,6 +4,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PhotosScreen from '../screens/PhotosScreen';
+import UploadScreen from '../screens/UploadScreen';
 import RootNavigation from './RootNavigation';
 
 export default createRouter(() => ({
@@ -11,5 +12,6 @@ export default createRouter(() => ({
   links: () => LinksScreen,
   settings: () => SettingsScreen,
   photos: () => PhotosScreen,
+  upload: () => UploadScreen,
   rootNavigation: () => RootNavigation,
 }));
