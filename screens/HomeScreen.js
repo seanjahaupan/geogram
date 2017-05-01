@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  TextInput
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -64,9 +65,13 @@ export default class HomeScreen extends React.Component {
               </Text>
             </TouchableOpacity>
           </View>
+
+          
+
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
+
+        <View style={styles.container}>
           <Text style={styles.tabBarInfoText}>
             This is a tab bar. You can edit it in:
           </Text>
@@ -77,7 +82,21 @@ export default class HomeScreen extends React.Component {
               navigation/RootNavigation.js
             </MonoText>
           </View>
+
         </View>
+
+        <ScrollView 
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}>
+          <TextInput
+                autoCorrect = {false}
+                autoFocus = {true}
+                placeholder = 'Say something about this photo'
+                multiline = {true}
+                onChangeText={(photoComments) => this.setState({photoComments})}
+                style={{height:40 , justifyContent:'center', borderColor:'black', borderWidth:1}}
+              />
+        </ScrollView>
       </View>
     );
   }

@@ -20,6 +20,10 @@
     "assetExts": ["ttf"]
   },
   "ios": {
-    "supportsTablet": true
+    "supportsTablet": true,
+    "bundleIdentifier": "com.seanjahaupan.geogram"
+  },
+  "android": {
+    "package": "com.seanjahaupan.geogram"
   }
 }
