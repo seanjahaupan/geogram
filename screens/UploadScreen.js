@@ -43,6 +43,7 @@ export default class UploadScreen extends React.Component {
 
   render() {
     let { image } = this.state;
+    //add keyboard alert here
     return (
 
       <View style={styles.container}>
@@ -51,6 +52,7 @@ export default class UploadScreen extends React.Component {
           (
             <View>
               <Image source = {{uri: image}} style={{width: SCREEN_WIDTH, height:SCREEN_WIDTH}} />
+              
               <TextInput
                 autoCorrect = {false}
                 autoFocus = {true}
