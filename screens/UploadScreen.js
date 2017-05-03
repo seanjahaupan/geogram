@@ -7,7 +7,8 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  TextInput
+  TextInput,
+  KeyboardAvoidingView
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import Exponent from 'expo';
@@ -43,7 +44,7 @@ export default class UploadScreen extends React.Component {
 
   render() {
     let { image } = this.state;
-    //add keyboard alert here
+   
     return (
 
       <View style={styles.container}>
@@ -53,14 +54,18 @@ export default class UploadScreen extends React.Component {
             <View>
               <Image source = {{uri: image}} style={{width: SCREEN_WIDTH, height:SCREEN_WIDTH}} />
               
-              <TextInput
-                autoCorrect = {false}
-                autoFocus = {true}
-                placeholder = 'Say something about this photo'
-                multiline = {true}
-                onChangeText={(photoComments) => this.setState({photoComments})}
-                style={{height:40 , justifyContent:'center', borderColor:'black', borderWidth:1}}
-              />
+              <KeyboardAvoidingView
+                 behavior='padding'
+               >
+                <TextInput
+                  autoCorrect = {false}
+                  autoFocus = {true}
+                  placeholder = 'Say something about this photo'
+                  multiline = {true}
+                  onChangeText={(photoComments) => this.setState({photoComments})}
+                  style={[styles.textInputStyle]}
+                />
+              </KeyboardAvoidingView>
               <Button title='Post photo' backgroundColor = 'blue' onPress = {()=> this._postPhoto(this.state)} />
             </View> )
         }
@@ -90,6 +95,7 @@ export default class UploadScreen extends React.Component {
 
   }
 
+//add function for react-native-fetch-blob and have it work, send to firebase as needed
   _postPhoto = ({image, imageLocationAndTime, photoComments}) => {
     console.log(photoComments)
     console.log(image)
@@ -107,6 +113,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
+  },  
+  textInputStyle: {
+    height:40, 
+    justifyContent:'center', 
+    borderColor:'black', 
+    borderWidth:1, 
+    backgroundColor:'white'
   },
 
 });

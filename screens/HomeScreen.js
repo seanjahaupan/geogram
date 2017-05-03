@@ -8,7 +8,8 @@ import {
   Text,
   TouchableOpacity,
   View,
-  TextInput
+  TextInput,
+  KeyboardAvoidingView
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -23,7 +24,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
+        <View
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
 
@@ -64,39 +65,80 @@ export default class HomeScreen extends React.Component {
                 Help, it didn’t automatically reload!
               </Text>
             </TouchableOpacity>
+                     <Text style={styles.getStartedText}>
+              Get started by opening
+            </Text>
+
+            <View
+              style={[
+                styles.codeHighlightContainer,
+                styles.homeScreenFilename,
+              ]}>
+              <MonoText style={styles.codeHighlightText}>
+                screens/HomeScreen.js
+              </MonoText>
+            </View>
+
+            <Text style={styles.getStartedText}>
+              test bitch
+            </Text>
+          </View>
+
+          <View style={styles.helpContainer}>
+            <TouchableOpacity
+              onPress={this._handleHelpPress}
+              style={styles.helpLink}>
+              <Text style={styles.helpLinkText}>
+                Help, it didn’t automatically reload!
+              </Text>
+            </TouchableOpacity>
+                     <Text style={styles.getStartedText}>
+              Get started by opening
+            </Text>
+
+            <View
+              style={[
+                styles.codeHighlightContainer,
+                styles.homeScreenFilename,
+              ]}>
+              <MonoText style={styles.codeHighlightText}>
+                screens/HomeScreen.js
+              </MonoText>
+            </View>
+
+            <Text style={styles.getStartedText}>
+              test bitch
+            </Text>
+          </View>
+
+          <View style={styles.helpContainer}>
+            <TouchableOpacity
+              onPress={this._handleHelpPress}
+              style={styles.helpLink}>
+              <Text style={styles.helpLinkText}>
+                Help, it didn’t automatically reload!
+              </Text>
+            </TouchableOpacity>
           </View>
 
           
 
-        </ScrollView>
-
-
-        <View style={styles.container}>
-          <Text style={styles.tabBarInfoText}>
-            This is a tab bar. You can edit it in:
-          </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>
-              navigation/RootNavigation.js
-            </MonoText>
-          </View>
-
         </View>
 
-        <ScrollView 
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}>
+
+
+        <KeyboardAvoidingView
+          behavior='position'
+        >
           <TextInput
                 autoCorrect = {false}
                 autoFocus = {true}
                 placeholder = 'Say something about this photo'
                 multiline = {true}
                 onChangeText={(photoComments) => this.setState({photoComments})}
-                style={{height:40 , justifyContent:'center', borderColor:'black', borderWidth:1}}
+                style={[styles.textInputStyle]}
               />
-        </ScrollView>
+        </KeyboardAvoidingView>
       </View>
     );
   }
@@ -223,4 +265,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
+  textInputStyle: {
+    height:40, 
+    justifyContent:'center', 
+    borderColor:'black', 
+    borderWidth:1, 
+    backgroundColor:'white'
+  },
+  secondInputStyle: {
+    backgroundColor:'black'
+  }
 });
