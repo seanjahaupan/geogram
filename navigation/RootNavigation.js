@@ -7,7 +7,7 @@ import {
   TabNavigationItem,
 } from '@expo/ex-navigation';
 import { FontAwesome } from '@expo/vector-icons';
-
+import firebase from 'firebase';
 import Alerts from '../constants/Alerts';
 import Colors from '../constants/Colors';
 import registerForPushNotificationsAsync
@@ -15,6 +15,16 @@ import registerForPushNotificationsAsync
 
 export default class RootNavigation extends React.Component {
 
+  componentWillMount(){
+    firebase.initializeApp({
+      apiKey: "AIzaSyBZo_rcp8UoaXkoBV0YCl3uDsbHOtlguNM",
+      authDomain: "geogram-f791d.firebaseapp.com",
+      databaseURL: "https://geogram-f791d.firebaseio.com",
+      projectId: "geogram-f791d",
+      storageBucket: "geogram-f791d.appspot.com",
+      messagingSenderId: "1096626501385"
+    });
+  }
   render() {
     return (
       <TabNavigation tabBarHeight={56} initialTab="photos">

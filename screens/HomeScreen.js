@@ -12,6 +12,8 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 
+import Firebase from 'firebase';
+
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
@@ -139,6 +141,8 @@ export default class HomeScreen extends React.Component {
                 style={[styles.textInputStyle]}
               />
         </KeyboardAvoidingView>
+
+        {/*create some shit to have stuff sent to firebase*/}
       </View>
     );
   }
